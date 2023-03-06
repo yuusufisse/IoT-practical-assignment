@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    background-color: #ffffff;
+}
+.header {
+    background-color: DodgerBlue;
+    padding: 1px;
+    text-align: center;
+    color: #ffffff;
+}
+</style>
+<body>
+    <div class="header">
+        <h1>DHT Sensor</h1>
+    </div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script>
+        $(document).ready(
+            function () {
+                setInterval(function () {
+                    $.get('/main', function (res) {
+                        $('#data').html(res);
+                    });
+                }, 1000);
+            }
+        );
+    </script>
+    <p id="data"></p>
+</body>
